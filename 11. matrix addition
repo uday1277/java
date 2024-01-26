@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for the first matrix
+        System.out.println("Enter elements for the first matrix (2x2):");
+        int[][] mat1 = readMatrix(scanner, 2, 2);
+
+        // Input for the second matrix
+        System.out.println("Enter elements for the second matrix (2x2):");
+        int[][] mat2 = readMatrix(scanner, 2, 2);
+
+        // Perform matrix addition
+        int[][] matSum = addMatrices(mat1, mat2);
+
+        // Display the result
+        System.out.println("Matrix Sum:");
+        displayMatrix(matSum);
+
+        scanner.close();
+    }
+
+    private static int[][] readMatrix(Scanner scanner, int rows, int columns) {
+        int[][] matrix = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        return matrix;
+    }
+
+    private static int[][] addMatrices(int[][] mat1, int[][] mat2) {
+        int rows = mat1.length;
+        int columns = mat1[0].length;
+
+        int[][] matSum = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matSum[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+
+        return matSum;
+    }
+
+    private static void displayMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
+}
