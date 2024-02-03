@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class ATMBalanceCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] denominations = { 2000, 500, 200, 100 };
+        int totalBalance = 0;
+
+        int i = 0;
+        while (i < denominations.length) {
+            System.out.print("Enter the " + (i + 1) + " Denomination: ");
+            int denomination = scanner.nextInt();
+
+            System.out.print("Enter the " + (i + 1) + " Denomination number of notes: ");
+            int numberOfNotes = scanner.nextInt();
+
+            if (denomination == denominations[i]) {
+                totalBalance += denomination * numberOfNotes;
+                i++;
+            } else {
+                System.out.println("Invalid denomination. Restarting...");
+            }
+        }
+
+        System.out.println("Total Available Balance in ATM: " + totalBalance);
+        scanner.close();
+    }
+}
