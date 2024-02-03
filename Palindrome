@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class PalindromeStringChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        if (isPalindrome(inputString)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
+        scanner.close();
+    }
+    private static boolean isPalindrome(String str) {
+        String cleanedStr = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        String reversedStr = new StringBuilder(cleanedStr).reverse().toString();
+        return cleanedStr.equals(reversedStr);
+    }
+}
